@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import PageHeader from './page-header/page-header';
+import PageHeaderComponent from './page-header/page-header-component';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <PageHeader></PageHeader>
+        <PageHeaderComponent></PageHeaderComponent>
       </div>
     );
   }

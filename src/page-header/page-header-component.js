@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './page-header.css';
+import './page-header-component.css';
 import '../assets/mountain_road.jpeg'
 
-class PageHeader extends Component {
+class PageHeaderComponent extends Component {
     render() {
         return (
             <div className="view">
@@ -18,4 +18,4 @@ class PageHeader extends Component {
     }
 }
 
-export default PageHeader;
+export default PageHeaderComponent;
