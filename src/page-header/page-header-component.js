@@ -7,8 +7,8 @@ class PageHeaderComponent extends Component {
         return (
             <div className="view">
                 <div className="full-bg-img flex-center">
-                    <div className="row">
-                        <div className="col-md-4 offset-md-1">
+                    <div className="row justify-content-start">
+                        <div className="col">
                             <p className="a-and-c-header">Allyson and Chris</p>
                         </div>
                     </div>
