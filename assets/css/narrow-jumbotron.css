@@ -10,6 +10,10 @@ body {
   font-family: "Crimson Text", serif;
 }
 
+p {
+  font-size: 1.25em;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .footer {
@@ -39,9 +43,9 @@ body {
 }
 
 /* Customize container */
-@media (min-width: 75em) {
+@media (min-width: 80em) {
   .container {
-    max-width: 75rem;
+    max-width: 80rem;
   }
 }
 
