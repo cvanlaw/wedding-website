@@ -21,7 +21,8 @@ p {
   padding-left: 1rem;
 }
 
-.header {
+.header,
+h3 {
   padding-bottom: 0.5rem;
   padding-top: 1rem;
   border-bottom: 0.05rem solid #e5e5e5;
