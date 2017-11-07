@@ -20,6 +20,10 @@ p {
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
+.header {
+  padding-top: 1.5rem;
+}
+
 .header,
 .footer {
   padding-right: 1rem;
@@ -29,10 +33,13 @@ p {
 .header,
 h3 {
   padding-bottom: 0.5rem;
-  padding-top: 1rem;
   border-bottom: 0.05rem solid #e5e5e5;
   font-family: "Bad Script", cursive;
   text-align: center;
+}
+
+h3 {
+  padding-top: 1rem;
 }
 
 .header h3 {
