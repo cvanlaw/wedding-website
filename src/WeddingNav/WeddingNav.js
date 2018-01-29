@@ -4,9 +4,6 @@ import {
     Route,
 } from 'react-router-dom'
 import {
-    Collapse,
-    Navbar,
-    NavbarToggler,
     Nav,
     NavItem,
     NavLink
@@ -35,7 +32,7 @@ class WeddingNav extends Component {
             <Router>
                 <div>
                     <div>
-                        <Nav horizontal justified className="ml-auto">
+                        <Nav horizontal justified card>
                             <NavItem>
                                 <NavLink href="/location/">Location</NavLink>
                             </NavItem>
@@ -47,7 +44,7 @@ class WeddingNav extends Component {
                             </NavItem>
                         </Nav>
                     </div>
-
+                    <hr />
                     <Route exact path="/" component={Home} />
                     <Route path="/location/" component={Location} />
                     <Route path="/travel/" component={Travel} />
