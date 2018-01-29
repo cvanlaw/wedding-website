@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import './Travel.css';
 import { Card, CardText, CardTitle, CardBody } from 'reactstrap';
 import { Container, Row } from 'reactstrap';
+import BannerImage from '../BannerImage/BannerImage';
 
 class Travel extends Component {
     render() {
         return (
             <Container className="justify-content-between">
+                <BannerImage />
                 <Card className="text-center border-0">
                     <CardBody>
                         <CardTitle>
