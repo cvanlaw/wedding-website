@@ -1,0 +1,16 @@
+h3 {
+    padding-bottom: 0.5rem;
+    border-bottom: 0.05rem solid #e5e5e5;
+    font-family: "Bad Script", cursive;
+    text-align: center;
+}
+
+h3 {
+    padding-top: 1rem;
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 3rem;
+}

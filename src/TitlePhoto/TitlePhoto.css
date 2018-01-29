@@ -1,0 +1,12 @@
+.main-photo {
+    width: auto;
+    padding: 0;
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .photo-credit {
+    font-size: 0.75em;
+    text-align: right;
+  }
