@@ -34,6 +34,9 @@ class WeddingNav extends Component {
                     <div>
                         <Nav horizontal justified card>
                             <NavItem>
+                                <NavLink href="/">Home</NavLink>
+                            </NavItem>
+                            <NavItem>
                                 <NavLink href="/location/">Location</NavLink>
                             </NavItem>
                             <NavItem>
