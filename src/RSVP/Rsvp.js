@@ -9,7 +9,7 @@ class Rsvp extends Component {
         super(props);
         this.state = {
             inviteType: "Individual",
-            guestCount: 0
+            guestCount: 1
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -37,7 +37,7 @@ class Rsvp extends Component {
         }
         else {
             this.setState({
-                guestCount: event.target.checked ? 1 : 0
+                guestCount: event.target.checked ? 2 : 1
             });
 
         }
