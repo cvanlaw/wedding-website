@@ -1,8 +1,6 @@
 {
   "short_name": "Wedding",
   "name": "The Wedding of Allyson and Chris",
-  "icons": [
-  ],
   "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#000000",
