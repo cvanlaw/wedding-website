@@ -32,7 +32,7 @@ class WeddingNav extends Component {
             <Router>
                 <div>
                     <div>
-                        <Nav horizontal justified card>
+                        <Nav horizontal='horizontal' justified card>
                             <NavItem>
                                 <NavLink href="/">Home</NavLink>
                             </NavItem>
