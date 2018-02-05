@@ -7,7 +7,11 @@ class MealSelection extends Component {
         super(props);
         this.state = {
             guestName: "",
-            selectedOption: ""
+            selectedOption: "",
+            guestValid: false,
+            selectedOptionValid: false,
+            formValid: false,
+            formErrors: { guestName: '', selectedOption: '' }
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -15,24 +19,73 @@ class MealSelection extends Component {
 
     handleChange(event) {
         const target = event.target;
+        let selectedOptionValid = this.state.selectedOptionValid;
+        let guestValid = this.state.guestValid;
         if (target.type === 'radio') {
-            this.handleOptionChange(event);
+            selectedOptionValid = this.handleOptionChange(event);
         }
         else {
-            this.handleNameChange(event);
+            guestValid = this.handleNameChange(event);
         }
+
+        this.validateForm(selectedOptionValid, guestValid);
     }
 
     handleOptionChange(event) {
+        const selectedOption = event.target.value;
+        const selectedOptionValid = selectedOption === 'beef'
+            || selectedOption === 'chicken'
+            || selectedOption === 'fish'
+            || selectedOption === 'veggie'
+            || selectedOption === 'kids';
+
         this.setState({
-            selectedOption: event.target.value
+            selectedOption: selectedOption,
+            selectedOptionValid: selectedOptionValid
         });
+
+        return selectedOptionValid;
     }
 
     handleNameChange(event) {
+        const name = event.target.value;
+        const nameValid = name.length >= 2;
         this.setState({
-            guestName: event.target.value
+            guestName: name,
+            guestValid: nameValid
         });
+
+        return nameValid;
+    }
+
+    validateForm(selectedOptionValid, guestValid) {
+        console.log(guestValid);
+        console.log(selectedOptionValid);
+        this.setState({
+            formValid: guestValid && selectedOptionValid
+        });
+
+        this.setFormErrors()
+    }
+
+    setFormErrors() {
+        if (!this.state.guestValid) {
+            this.setState({
+                formErrors: {
+                    guestName: 'Please enter a name for this guest.',
+                    selectedOption: this.state.formErrors.selectedOption
+                }
+            });
+        }
+
+        if (!this.state.selectedOptionValid) {
+            this.setState({
+                formErrors: {
+                    selectedOption: 'Please choose which meal you would prefer.',
+                    guestName: this.state.formErrors.guestName
+                }
+            });
+        }
     }
 
     render() {

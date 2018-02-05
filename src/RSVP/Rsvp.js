@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./Rsvp.css"
-import { Card, CardBody, CardTitle, Container, Form, FormGroup, Label, Input } from 'reactstrap';
+import { CardBody, CardTitle, Container, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import BannerImage from '../BannerImage/BannerImage';
 import MealSelection from '../MealSelection/MealSelection';
 
@@ -95,11 +95,6 @@ class Rsvp extends Component {
                     <CardBody>
                         <Form>
                             <FormGroup>
-                                <Label for="inviteeName">Invitee Name</Label>
-                                <Input type="text" name="Invitee Name"
-                                    id="inviteeName" placeholder="Name on your Invitation" />
-                            </FormGroup>
-                            <FormGroup>
                                 <Input type="select" name="Party Type" id="partyType"
                                     onChange={this.handleChange}>
                                     <option>Individual</option>
@@ -108,6 +103,7 @@ class Rsvp extends Component {
                             </FormGroup>
                             {this.displayGuestCount()}
                             {this.displayMealSelection()}
+                            <Button color="info">Submit</Button>
                         </Form>
                     </CardBody>
                 </div>
