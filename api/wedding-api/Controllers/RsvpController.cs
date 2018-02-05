@@ -1,40 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using wedding_api.Data;
+using wedding_api.Models;
 
 namespace wedding_api.Controllers
 {
     [Route("api/[controller]")]
     public class RsvpController : Controller
     {
+        private readonly RsvpContext _context;
+
+        public RsvpController(RsvpContext context)
+        {
+            this._context = context;
+        }
+
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]RsvpModel rsvpModel)
+        public async Task<IActionResult> Post([FromBody] Rsvp rsvp)
         {
+            if (rsvp?.Guests == null ||
+                rsvp.Guests.Any(x =>
+                    x.MealSelection == MealSelection.Undefined || string.IsNullOrWhiteSpace(x.GuestName)))
+            {
+                return this.BadRequest();
+            }
+
+            await this._context.Rsvps.AddAsync(rsvp);
+            await this._context.SaveChangesAsync();
+
+            return this.Ok();
         }
-    }
-
-    public class RsvpModel
-    {
-        public List<GuestModel> Guests { get; set; }
-    }
-
-    public class GuestModel
-    {
-        public string GuestName { get; set; }
-
-        public MealSelection MealSelection { get; set; }
-    }
-
-    public enum MealSelection
-    {
-        Undefined = 0,
-        Beef,
-        Fish,
-        Chicken,
-        Veggie,
-        Kids
     }
 }
