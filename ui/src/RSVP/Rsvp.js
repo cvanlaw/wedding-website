@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import "./Rsvp.css";
 import {
   CardBody,
@@ -19,10 +20,13 @@ class Rsvp extends Component {
     this.state = {
       inviteType: "Individual",
       guestCount: 1,
-      guests: []
+      guests: [],
+      canSave: false
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleDone = this.handleDone.bind(this);
+    this.saveRsvp = this.saveRsvp.bind(this);
   }
 
   handleChange(event) {
@@ -88,22 +92,39 @@ class Rsvp extends Component {
     );
   }
 
+  handleDone(guestName, mealSelection) {
+    const existingGuests = this.state.guests;
+    this.setState({
+      guests: [...existingGuests, {
+        guestName: guestName,
+        mealSelection: mealSelection
+      }],
+      canSave: existingGuests.length + 1 === this.state.guestCount
+    });
+  }
+
   displayMealSelection() {
     let mealSelectionContent = [];
 
     for (let i = 0; i < this.state.guestCount; i++) {
-      mealSelectionContent.push(<MealSelection />);
+      mealSelectionContent.push(<MealSelection onDone={this.handleDone}/>);
     }
 
     return mealSelectionContent;
   }
 
   saveRsvp() {
-    let guests = this.props.children;
+    const rsvpBody = {
+      guests: this.state.guests
+    };
 
-    if (guests && guests.length > 0) {
-      console.log(JSON.stringify(guests[0].state));
-    }
+    axios.post('/api/rsvp', rsvpBody)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   }
 
   render() {
@@ -131,7 +152,7 @@ class Rsvp extends Component {
               </FormGroup>
               {this.displayGuestCount()}
               {this.displayMealSelection()}
-              <Button color="info" onClick={this.saveRsvp()}>
+              <Button color="info" onClick={this.saveRsvp} disabled={!this.state.canSave}>
                 Submit
               </Button>
             </Form>

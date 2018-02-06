@@ -1,27 +1,32 @@
 import React, { Component } from 'react';
 import "./MealSelection.css";
-import { FormGroup, Row, Col, Input, Label } from 'reactstrap';
+import { Button, FormGroup, Row, Col, Input, Label } from 'reactstrap';
 
 class MealSelection extends Component {
     constructor(props) {
         super(props);
         this.state = {
             guestName: "",
-            selectedOption: "",
+            selectedOption: "Beef",
             guestValid: false,
-            selectedOptionValid: false,
+            selectedOptionValid: true,
             formValid: false,
             formErrors: { guestName: '', selectedOption: '' }
         };
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleDone = this.handleDone.bind(this);
+    }
+
+    handleDone() {
+        this.props.onDone(this.state.guestName, this.state.selectedOption);
     }
 
     handleChange(event) {
         const target = event.target;
         let selectedOptionValid = this.state.selectedOptionValid;
         let guestValid = this.state.guestValid;
-        if (target.type === 'radio') {
+        if (target.name === 'Meal Choice') {
             selectedOptionValid = this.handleOptionChange(event);
         }
         else {
@@ -33,11 +38,11 @@ class MealSelection extends Component {
 
     handleOptionChange(event) {
         const selectedOption = event.target.value;
-        const selectedOptionValid = selectedOption === 'beef'
-            || selectedOption === 'chicken'
-            || selectedOption === 'fish'
-            || selectedOption === 'veggie'
-            || selectedOption === 'kids';
+        const selectedOptionValid = selectedOption === "Beef"
+            || selectedOption === "Chicken"
+            || selectedOption === "Fish"
+            || selectedOption === "Vegetarian"
+            || selectedOption === "Kid's Meal";
 
         this.setState({
             selectedOption: selectedOption,
@@ -59,8 +64,6 @@ class MealSelection extends Component {
     }
 
     validateForm(selectedOptionValid, guestValid) {
-        console.log(guestValid);
-        console.log(selectedOptionValid);
         this.setState({
             formValid: guestValid && selectedOptionValid
         });
@@ -92,54 +95,24 @@ class MealSelection extends Component {
         return (
             <FormGroup inline>
                 <Row>
-                    <Col sm="4">
+                    <Col sm="5">
                         <Input type="text" name="Guest Name" placeholder="Guest Name"
                             value={this.state.guestName}
                             onChange={this.handleChange} />
                     </Col>
-                    <Col sm="8">
-                        <FormGroup tag="fieldset" inline>
-                            <FormGroup check inline>
-                                <Label check>
-                                    <Input type="radio" name="beef" value="beef"
-                                        checked={this.state.selectedOption === 'beef'}
-                                        onChange={this.handleChange} />{' '}
-                                    Bison Short Rib
-                            </Label>
-                            </FormGroup>
-                            <FormGroup check inline>
-                                <Label check>
-                                    <Input type="radio" name="chicken" value="chicken"
-                                        checked={this.state.selectedOption === 'chicken'}
-                                        onChange={this.handleChange} />{' '}
-                                    Airline Chicken Breast
-                            </Label>
-                            </FormGroup>
-                            <FormGroup check inline>
-                                <Label check>
-                                    <Input type="radio" name="fish" value="fish"
-                                        checked={this.state.selectedOption === 'fish'}
-                                        onChange={this.handleChange} />{' '}
-                                    Steelhead Trout
-                            </Label>
-                            </FormGroup>
-                            <FormGroup check inline>
-                                <Label check>
-                                    <Input type="radio" name="veggie" value="veggie"
-                                        checked={this.state.selectedOption === 'veggie'}
-                                        onChange={this.handleChange} />{' '}
-                                    Cauliflower Steak (Vegetarian)
-                            </Label>
-                            </FormGroup>
-                            <FormGroup check inline>
-                                <Label check>
-                                    <Input type="radio" name="kids" value="kids"
-                                        checked={this.state.selectedOption === 'kids'}
-                                        onChange={this.handleChange} />{' '}
-                                    Kid's Meal
-                            </Label>
-                            </FormGroup>
+                    <Col sm="5">
+                        <FormGroup>
+                            <Input type="select" name="Meal Choice" id="mealSelect" onChange={this.handleChange}>
+                                <option>Beef</option>
+                                <option>Chicken</option>
+                                <option>Fish</option>
+                                <option>Vegetarian</option>
+                                <option>Kid's Meal</option>
+                            </Input>
                         </FormGroup>
+                    </Col>
+                    <Col sm="2">
+                        <Button block onClick={this.handleDone}>Done</Button>
                     </Col>
                 </Row>
             </FormGroup>
