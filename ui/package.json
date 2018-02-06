@@ -2,7 +2,7 @@
   "name": "wedding-website",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:61661/",
+  "proxy": "http://localhost:63115/",
   "dependencies": {
     "axios": "^0.17.1",
     "bootstrap": "4.0.0",

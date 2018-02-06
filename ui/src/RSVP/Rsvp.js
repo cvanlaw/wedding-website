@@ -21,7 +21,8 @@ class Rsvp extends Component {
       inviteType: "Individual",
       guestCount: 1,
       guests: [],
-      canSave: false
+      canSave: false,
+      submitted: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -95,36 +96,78 @@ class Rsvp extends Component {
   handleDone(guestName, mealSelection) {
     const existingGuests = this.state.guests;
     this.setState({
-      guests: [...existingGuests, {
-        guestName: guestName,
-        mealSelection: mealSelection
-      }],
+      guests: [
+        ...existingGuests,
+        {
+          guestName: guestName,
+          mealSelection: mealSelection
+        }
+      ],
       canSave: existingGuests.length + 1 === this.state.guestCount
     });
   }
 
   displayMealSelection() {
     let mealSelectionContent = [];
+    let guests = [];
 
     for (let i = 0; i < this.state.guestCount; i++) {
-      mealSelectionContent.push(<MealSelection onDone={this.handleDone}/>);
+      mealSelectionContent.push(
+        <MealSelection
+          onDone={this.handleDone}
+          onValidityChange={this.handleValidityChange}
+          ref={guest => {
+            guests.push(guest);
+          }}
+        />
+      );
     }
 
+    this.state.guests = [];
+    this.state.guests = guests;
     return mealSelectionContent;
   }
 
   saveRsvp() {
     const rsvpBody = {
-      guests: this.state.guests
+      guests: []
     };
 
-    axios.post('/api/rsvp', rsvpBody)
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    for (let i = 0; i < this.state.guests.length; i++) {
+      let guest = this.state.guests[i].getGuest();
+
+      if(!guest.isValid) {
+        continue;
+      }
+      
+      rsvpBody.guests.push({
+        guestName: guest.guestName,
+        mealSelection: guest.mealSelection
+      });
+    }
+
+    axios
+      .post("/api/rsvp", rsvpBody)
+      .then(res => {
+        this.setState({
+          submitted: true
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  getSubmitButton() {
+    if (this.state.submitted) {
+      return <h4>Saved!</h4>;
+    }
+
+    return (
+      <Button color="info" onClick={this.saveRsvp}>
+        Submit
+      </Button>
+    );
   }
 
   render() {
@@ -152,9 +195,7 @@ class Rsvp extends Component {
               </FormGroup>
               {this.displayGuestCount()}
               {this.displayMealSelection()}
-              <Button color="info" onClick={this.saveRsvp} disabled={!this.state.canSave}>
-                Submit
-              </Button>
+              {this.getSubmitButton()}
             </Form>
           </CardBody>
         </div>
