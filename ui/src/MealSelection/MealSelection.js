@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./MealSelection.css";
-import { Button, FormGroup, Row, Col, Input, Label } from "reactstrap";
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
+import { FormGroup, Row, Col, Input } from "reactstrap";
 
 class MealSelection extends Component {
   constructor(props) {
@@ -119,18 +118,6 @@ class MealSelection extends Component {
       mealSelection: this.state.selectedOption,
       isValid: this.state.guestValid
     };
-  }
-
-  getSaveButton() {
-    if (!this.state.guestValid) {
-      return <p>Please enter the name of this guest.</p>;
-    }
-
-    return (
-      <Button color="success" onClick={this.handleDone}>
-        <FontAwesomeIcon icon="check" />
-      </Button>
-    );
   }
 
   render() {

@@ -8,6 +8,7 @@ import {
     NavItem,
     NavLink
 } from 'reactstrap';
+import "./WeddingNav.css";
 import Location from '../Location/Location';
 import Travel from '../Travel/Travel';
 import Registry from '../Registry/Registry';
@@ -35,19 +36,19 @@ class WeddingNav extends Component {
                     <div>
                         <Nav horizontal='horizontal' justified card>
                             <NavItem>
-                                <NavLink href="/">Home</NavLink>
+                                <NavLink className="nav-link" href="/">Home</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/location/">Location</NavLink>
+                                <NavLink className="nav-link" href="/location/">Location</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/travel/">Travel & Accomodations</NavLink>
+                                <NavLink className="nav-link" href="/travel/">Travel & Accomodations</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/registry/">Registry</NavLink>
+                                <NavLink className="nav-link" href="/registry/">Registry</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/rsvp/">RSVP</NavLink>
+                                <NavLink className="nav-link" href="/rsvp/">RSVP</NavLink>
                             </NavItem>
                         </Nav>
                     </div>

@@ -28,15 +28,13 @@ class Travel extends Component {
                                 </p>
                                 <p>Once you arrive in Denver, there are many public transportation options. You can take the light rail from
                                     the airport to just about anywhere you want to go in and around Denver. The train picks you up just outside
-                                    of the baggage claim area. You can <a href="https://www.rtd-denver.com/app/plan/trip" target="_blank" rel="noopener noreferrer">plan your route</a> on the RTD site,
-                                    <a href="http://www.rtd-denver.com/routemaps/2319/101_SW_D.pdf" target="_blank" rel="noopener noreferrer"> view the route map</a>, or browse their site to learn your light rail options before arriving. The closest
+                                    of the baggage claim area. You can <a href="https://www.rtd-denver.com/app/plan/trip" target="_blank" rel="noopener noreferrer">plan your route</a> on the RTD site, <a href="http://www.rtd-denver.com/routemaps/2319/101_SW_D.pdf" target="_blank" rel="noopener noreferrer">view the route map</a>, or browse their site to learn your light rail options before arriving. The closest
                                     station to the venue is Littleton / Mineral Station (#33716), and this option would probably require using
                                     a combination of the train and a <a href="https://www.lyft.com/invite/VANLAWWEDDING" target="_blank" rel="noopener noreferrer">Lyft</a> from the station to the hotel / venue. If you're considering staying in downtown Denver, your best bet is to take the light
                                     rail to Union Station. From there, you're within walking distance of tons of great restaurants, bars, and
                                     entertainment.
                                 </p>
-                                <p>As for accommodations, we have some suggestions for you, depending on what you're looking for. If you're
-                                    concerned about proximity to the venue, a great option is the <a href="http://www.marriott.com/hotels/travel/dentp-towneplace-suites-denver-southwest-littleton/" target="_blank" rel="noopener noreferrer">Towne Place and Suites Marriott</a> which is only 2.6 miles up the road from the wedding venue. If you're
+                                <p>As for accommodations, we have a block of rooms at the <a href="http://goog.gl/5HJ7fF" target="_blank" rel="noopener noreferrer">Towne Place and Suites Marriott</a> which is only just over a mile up the road from the wedding venue. You're able to block rooms from 5/31/2018-6/5/2018 at the discounted rate. This discounted rate will only be available until May 1, 2018 or the rooms are no longer available. You can also make a reservation by calling 303.972.0555. Be sure to mention that you are with the McCarthy-Van Law Wedding.  If you're
                                     a bit more adventurous, <a
                                         href="https://www.vrbo.com/results?swLat=39.51300189851595&swLong=-105.09891252050784&neLat=39.637642081438045&neLong=-104.97256974707034&q=littleton&zoom=12&page=1&region=1&from-date=2018-06-01&to-date=2018-06-04&searchTermContext=013004bf-fc90-41bb-b5c1-2e74f87a19b5&sleeps=2-plus"
                                         target="_blank" rel="noopener noreferrer">VRBO</a> or <a
