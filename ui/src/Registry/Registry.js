@@ -27,6 +27,7 @@ class Registry extends Component {
                                 </a>, <a
                                         href="https://www.crateandbarrel.com/gift-registry/allyson-mccarthy-and-christopher-van-law/r5785621"
                                         target="_blank" rel="noopener noreferrer">Crate & Barrel</a>
+                                    ,<a href="https://www.amazon.com/wedding/share/vanlawmccarthywedding" target="_blank" rel="noopener noreferrer"> Amazon</a>
                                     , and <a
                                         href="https://www.zola.com/registry/vanlaw"
                                         target="_blank" rel="noopener noreferrer">Zola</a>.
