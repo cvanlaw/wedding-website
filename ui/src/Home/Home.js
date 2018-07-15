@@ -12,9 +12,9 @@ class Home extends Component {
           <BannerImage />
           <Row className="justify-content-center">
             <Col sm="4">
-              <form action="/rsvp/">
-                <Button outline block type="submit" value="RSVP">
-                  RSVP
+              <form action="/photos/">
+                <Button outline block type="submit" value="Photos">
+                  Photos
                 </Button>
               </form>
             </Col>

@@ -13,7 +13,6 @@ import Location from '../Location/Location';
 import Travel from '../Travel/Travel';
 import Registry from '../Registry/Registry';
 import Home from '../Home/Home';
-import Rsvp from '../RSVP/Rsvp';
 
 class WeddingNav extends Component {
     constructor(props) {
@@ -48,7 +47,7 @@ class WeddingNav extends Component {
                                 <NavLink className="nav-link" href="/registry/">Registry</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="nav-link" href="/rsvp/">RSVP</NavLink>
+                                <NavLink className="nav-link" href="/photos/">Photos</NavLink>
                             </NavItem>
                         </Nav>
                     </div>
@@ -57,7 +56,6 @@ class WeddingNav extends Component {
                     <Route path="/location/" component={Location} />
                     <Route path="/travel/" component={Travel} />
                     <Route path="/registry/" component={Registry} />
-                    <Route path="/rsvp/" component={Rsvp} />
                 </div>
             </Router>
         );
