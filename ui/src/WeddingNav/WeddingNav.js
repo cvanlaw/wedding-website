@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
     BrowserRouter as Router,
     Route,
+    Redirect,
 } from 'react-router-dom'
 import {
     Nav,
@@ -56,6 +57,9 @@ class WeddingNav extends Component {
                     <Route path="/location/" component={Location} />
                     <Route path="/travel/" component={Travel} />
                     <Route path="/registry/" component={Registry} />
+                    <Route path="/photos/" render={() => (
+                        window.location="https://vanlawwedding.shutterfly.com/wedding"
+                    )} />
                 </div>
             </Router>
         );
